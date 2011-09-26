@@ -1,0 +1,6 @@
+Note: bin/ contains some bash scripts used by the plugin. Add it to your PATH.
+
+Warning:
+- This is an unofficial clone of vim-live-latex-preview by Kevin C. Klement <klement@philos.umass.edu>
+
+- For licence info and more details please visit http://aur.archlinux.org/packages.php?ID=42262.
