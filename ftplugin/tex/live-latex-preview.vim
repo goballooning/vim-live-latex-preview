@@ -7,22 +7,28 @@ if exists("b:did_llpplugin")
   finish
 endif
 let b:did_llpplugin = 1
-" Delete outdated help file
-silent! exec "! (\\! grep -q '2011 Aug 18' " . $HOME . "/.vim/doc/live-latex-preview.txt) && rm " . $HOME . "/.vim/doc/live-latex-preview.txt"
-" Install help file if not already installed
-if !filereadable($HOME . "/.vim/doc/live-latex-preview.txt")
-   silent! exec "! mkdir -p " . $HOME . "/.vim/doc"
-   if filereadable("/usr/share/vim/vimfiles/ftplugin/tex/live-latex-preview.txt")
-      silent! exec "!cp /usr/share/vim/vimfiles/ftplugin/tex/live-latex-preview.txt " . $HOME . "/.vim/doc/"
-   endif
-endif
+
+
+""" " Delete outdated help file
+""" silent! exec "! (\\! grep -q '2011 Aug 18' " . $HOME . "/.vim/doc/live-latex-preview.txt) && rm " . $HOME . "/.vim/doc/live-latex-preview.txt"
+""" " Install help file if not already installed
+""" if !filereadable($HOME . "/.vim/doc/live-latex-preview.txt")
+"""    silent! exec "! mkdir -p " . $HOME . "/.vim/doc"
+"""    if filereadable("/usr/share/vim/vimfiles/ftplugin/tex/live-latex-preview.txt")
+"""       silent! exec "!cp /usr/share/vim/vimfiles/ftplugin/tex/live-latex-preview.txt " . $HOME . "/.vim/doc/"
+"""    endif
+""" endif
+
 " Read tags from help file
 if filereadable($HOME . "/.vim/doc/live-latex-preview.txt")
     silent! helptags $HOME/.vim/doc
 endif
+
+
 " Make sure config files have somewhere to go
 silent! exec "! mkdir -p " . $HOME . "/.config/live-latex-preview"
 silent! exec "! echo -n 9999 > " . $HOME ."/.config/live-latex-preview/activepid"
+
 " Set up initial variables 
 let b:Pdfviewing = "no"
 let b:Liveupdating = "no"
