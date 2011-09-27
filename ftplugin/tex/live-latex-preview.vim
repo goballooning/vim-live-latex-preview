@@ -8,7 +8,7 @@ if exists("b:did_llpplugin")
 endif
 let b:did_llpplugin = 1
 
-
+""" commented by ying17zi. If you manage your vim plugins with pathogen, the followings are not necessary
 """ " Delete outdated help file
 """ silent! exec "! (\\! grep -q '2011 Aug 18' " . $HOME . "/.vim/doc/live-latex-preview.txt) && rm " . $HOME . "/.vim/doc/live-latex-preview.txt"
 """ " Install help file if not already installed
@@ -18,12 +18,11 @@ let b:did_llpplugin = 1
 """       silent! exec "!cp /usr/share/vim/vimfiles/ftplugin/tex/live-latex-preview.txt " . $HOME . "/.vim/doc/"
 """    endif
 """ endif
-
-" Read tags from help file
-if filereadable($HOME . "/.vim/doc/live-latex-preview.txt")
-    silent! helptags $HOME/.vim/doc
-endif
-
+""" 
+""" " Read tags from help file
+""" if filereadable($HOME . "/.vim/doc/live-latex-preview.txt")
+"""     silent! helptags $HOME/.vim/doc
+""" endif
 
 " Make sure config files have somewhere to go
 silent! exec "! mkdir -p " . $HOME . "/.config/live-latex-preview"
