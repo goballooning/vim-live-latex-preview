@@ -2,8 +2,8 @@ Note:
 - bin/ contains some bash scripts used by the plugin. Add it to your PATH.
 - Some code in ftplugin/tex/live-latex-preview.vim are commented. that part is not necessary for pathogen users.
 
-- I will update this Repository as soon as I notices a newer version of vim-live-latex-preview. 
-- I created a alert and made it a recipe on ifttt: http://ifttt.com/recipes/2999. (I have not varify whether it really works, as there is no update for vim-live-latex-preview after that.)
+- I will update this Repository as soon as I notice a newer version of vim-live-latex-preview. 
+- I created a alert and made it a recipe on ifttt: http://ifttt.com/recipes/2999. (I do not varify whether it really works, as there is no update for vim-live-latex-preview since then.)
 
 Warning:
 - This is an unofficial clone of vim-live-latex-preview by Kevin C. Klement <klement@philos.umass.edu>
