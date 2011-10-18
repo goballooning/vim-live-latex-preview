@@ -1,4 +1,5 @@
 #!/bin/bash
+
 file="$1"
 windowid="$2"
 logfile="${file%.tex}.log"

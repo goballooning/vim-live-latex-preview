@@ -1,4 +1,5 @@
 #!/bin/bash
+
 texfile="$2"
 mupdf "$1" &>/dev/null &
 mupid="$!"
