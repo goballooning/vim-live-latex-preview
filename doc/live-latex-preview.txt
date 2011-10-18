@@ -85,5 +85,5 @@ All files should be in the same folder.
 
 
 Contact Kevin C. Klement <klement@philos.umass.edu> with bug reports.
-
+http://aur.archlinux.org/packages.php?ID=42262
  vim:tw=78:ts=8:ft=help:norl:
