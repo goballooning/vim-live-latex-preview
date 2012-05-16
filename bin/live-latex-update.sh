@@ -2,11 +2,18 @@
 
 file="$1"
 windowid="$2"
-logfile="${file%.tex}.log"
-auxfile="${file%.tex}.aux"
+basename="${file%.tex}"
+logfile="${basename}.log"
+auxfile="${basename}.aux"
+
+
 if head -n 5 "$file" | grep -i -q 'xelatex' > /dev/null 2>&1 ; then
     execprog="xelatex"
     echo "XeLaTeX document detected."
+elif sed -n -e '/\\documentclass/,/\\begin{[[:space:]]*document[[:space:]]*}/p' "$file" \
+	| grep '\usepackage\(\[.*\]\|\){.*\(pstricks\|pst-\).*}' > /dev/null 2>&1 ; then
+    execprog="latex"
+    echo "Using plain LaTeX"
 else
     execprog="pdflatex" 
     echo "Using PDFLaTeX."
@@ -34,6 +41,28 @@ if ${execprog} -interaction=nonstopmode -halt-on-error -file-line-error -synctex
               echo "failure"
               exit 1
            fi
+   fi
+   if [ $execprog == "latex" ] ; then
+       dvifile=${basename}.dvi
+       psfile=${basename}.ps
+       if [ ! -e $dvifile ] ; then
+           echo "'${dvifile} does not exist. failure"
+	   exit 1
+       else
+	   if ! dvips $dvifile ; then
+	       echo "'${dvifile}' corrupted. failure"
+	   fi
+       fi
+
+       if [ ! -e $psfile ] ; then
+           echo "'${psfile} does not exist. failure"
+	   exit 1
+       else
+	   if ! ps2pdf $psfile ; then
+	       echo "'${psfile}' corrupted. failure"
+	   fi
+       fi
+
    fi
    if [[ $windowid != "999999" ]] ; then
        echo "Updating MuPDF window."
