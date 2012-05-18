@@ -62,7 +62,7 @@ function! LaunchMuPDF()
             silent! call system("live-latex-update.sh \"" . b:Rootfile . "\" 999999 &>/dev/null")
         endif
         if filereadable(b:Pdfroot.".pdf")
-            let b:MuPDFWindowID = system("mupdf-launch.sh \"" . b:Pdfroot . ".pdf\" \"" . expand("%") . "\"")
+            let b:MuPDFWindowID = system("mupdf-launch.sh \"" . b:Pdfroot . ".pdf\" \"" . expand("%") . "\" 2> /dev/null")
             let b:Pdfviewing = "yes"
             echo "PDF preview now on." 
         else 
