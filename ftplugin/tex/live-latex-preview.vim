@@ -1,5 +1,5 @@
 " 
-" Live LaTeX preview script, v0.8 Kevin C. Klement
+" Live LaTeX preview script, v0.9 Kevin C. Klement
 " klement <at> philos <dot> umass <dot> edu
 " 
 " Only do this when not done yet for this buffer
@@ -8,9 +8,9 @@ if exists("b:did_llpplugin")
 endif
 let b:did_llpplugin = 1
 
-""" commented by ying17zi. If you manage your vim plugins with pathogen, the followings are not necessary
+""" commented by ying17zi. If you manage your vim plugins with pathogen or Vunble, the followings are not necessary
 """ " Delete outdated help file
-""" silent! exec "! (\\! grep -q '2011 Aug 18' " . $HOME . "/.vim/doc/live-latex-preview.txt) && rm " . $HOME . "/.vim/doc/live-latex-preview.txt"
+""" silent! exec "! (\\! grep -q '2014 Feb 01' " . $HOME . "/.vim/doc/live-latex-preview.txt) && rm " . $HOME . "/.vim/doc/live-latex-preview.txt"
 """ " Install help file if not already installed
 """ if !filereadable($HOME . "/.vim/doc/live-latex-preview.txt")
 """    silent! exec "! mkdir -p " . $HOME . "/.vim/doc"
@@ -18,16 +18,13 @@ let b:did_llpplugin = 1
 """       silent! exec "!cp /usr/share/vim/vimfiles/ftplugin/tex/live-latex-preview.txt " . $HOME . "/.vim/doc/"
 """    endif
 """ endif
-""" 
 """ " Read tags from help file
 """ if filereadable($HOME . "/.vim/doc/live-latex-preview.txt")
 """     silent! helptags $HOME/.vim/doc
 """ endif
-
 " Make sure config files have somewhere to go
 silent! exec "! mkdir -p " . $HOME . "/.config/live-latex-preview"
 silent! exec "! echo -n 9999 > " . $HOME ."/.config/live-latex-preview/activepid"
-
 " Set up initial variables 
 let b:Pdfviewing = "no"
 let b:Liveupdating = "no"
@@ -216,8 +213,8 @@ autocmd CursorMoved *.tex silent call UpdatePDF()
 autocmd CursorMovedI *.tex silent call UpdatePDF()
 autocmd CursorHold *.tex silent call UpdatePDF()
 autocmd CursorHoldI *.tex silent call UpdatePDF()
-" Jump to active page when inserting
-autocmd InsertEnter *.tex silent call MuPDFForward()
+"" (REMOVED B/C ANNOYING) Jump to active page when inserting
+" autocmd InsertEnter *.tex silent call MuPDFForward()
 " Shutdown preview when leaving vim
 autocmd VimLeave *.tex silent call CloseMuPDF()
 " Welcome message

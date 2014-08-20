@@ -1,5 +1,4 @@
 #!/bin/bash
-
 mfile="$1"
 sfile="$2"
 windowid="$3"

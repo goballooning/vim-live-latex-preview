@@ -1,4 +1,4 @@
-*live-latex-preview.txt*	For Vim version 7.3.  Last change: 2011 Aug 18
+*live-latex-preview.txt*	For Vim version 7.4. Last change: 2014 Feb 01
 
                                                             *live-latex-preview*
 
@@ -54,19 +54,39 @@ preview is not active, then put
 
 into your .vimrc file.
 
+                                            *LaTeX-compilation* options
+
 Using XeLaTeX~
 
 To compile with XeLaTeX rather than PDFLaTeX, include the string 
 'xelatex' somewhere in the first five lines of your file (e.g., in a
-comment). Currently only PDFLaTeX and XeLaTeX are supported. (Support 
-for LuaLaTeX and/or LaTeX > dvips > ps2pdf may be added in the future, 
-but they may be too slow for the live updating process anyway.)
+comment).
 
+Using LaTeX > dvips > ps2pdf (for, e.g., PSTricks support)~
 
-                                             *LaTeX subdocuments*
-                                                 *LaTeX root*
+If pstricks or related pst-* package is loaded in your preamble, this option
+will be automatically used. Otherwise, pdflatex or xelatex will be used.
+(Thanks to Hong Ying for implementing this.)
 
-Working with Subdocuments~
+(Support for LuaLaTeX may be added in the future.) 
+
+Using biber instead of bibTeX~
+
+To process bibliographic citations with biber instead of bibTeX, include
+the string 'biber' somewhere in the first five lines of your file (e.g.,
+in a comment).
+
+Using -shell-escape~
+
+To enable the -shell-escape command-line option, to allow 
+LaTeX's \write18{..} command (for, e.g., the minted package), include
+the string 'shell-escape' somewhere in the first five lines of your file
+(e.g., in a comment).
+
+                                             LaTeX *subdocuments*
+                                                 LaTeX *root*
+
+Working with subdocuments~
 
 If you want to use the live preview feature while editing a 
 sub-document, i.e., a document included in another document by means 
@@ -85,5 +105,5 @@ All files should be in the same folder.
 
 
 Contact Kevin C. Klement <klement@philos.umass.edu> with bug reports.
-http://aur.archlinux.org/packages.php?ID=42262
+
  vim:tw=78:ts=8:ft=help:norl:

@@ -1,9 +1,9 @@
 Note: 
-- bin/ contains some bash scripts used by the plugin. Add it to your PATH.
-- Some code in ftplugin/tex/live-latex-preview.vim are commented. that part is not necessary for pathogen users.
+- `bin/` contains some bash scripts used by the plugin. Add it to your `PATH`.
+- Some code in `ftplugin/tex/live-latex-preview.vim` are commented. That part is not necessary for `pathogen` or `Vundle` users.
 
 - I will update this Repository as soon as I notice a newer version of vim-live-latex-preview. 
-- I created a alert and made it a recipe on ifttt: http://ifttt.com/recipes/2999. (I do not varify whether it really works, as there is no update for vim-live-latex-preview since then.)
+- I created a alert and made it a recipe on `ifttt: http://ifttt.com/recipes/2999`.
 
 （for editting latex, I'm using latex-box and the scrip here: http://jlebl.wordpress.com/2011/01/13/vim-evince-and-forward-and-backward-latex-synctex-search/）
 
