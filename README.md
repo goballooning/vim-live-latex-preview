@@ -9,5 +9,5 @@ Note:
 
 Warning:
 - This is an unofficial clone of vim-live-latex-preview by Kevin C. Klement <klement@philos.umass.edu>
-- For licence info and more details please visit http://aur.archlinux.org/packages.php?ID=42262.
+- For licence info and more details please visit http://aur.archlinux.org/packages.php?ID=42262 (this original link is broken, Oct 13 2015).
 
