@@ -10,3 +10,6 @@ More on editing LaTeX under Vim:
 - https://github.com/lervag/vimtex
 - https://github.com/LaTeX-Box-Team/LaTeX-Box
 - http://jlebl.wordpress.com/2011/01/13/vim-evince-and-forward-and-backward-latex-synctex-search/
+
+Another scientific writing environment TeXmacs (www.texmacs.org)
+- Video tutorials: http://www.texmacs.org/tmweb/home/videos.en.html
