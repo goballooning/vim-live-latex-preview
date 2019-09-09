@@ -56,7 +56,7 @@ function! LaunchMuPDF()
         endif
         if !filereadable(b:Pdfroot.".pdf")
             echo "Initial compile..."
-            silent! call system("live-latex-update.sh \"" . b:Rootfile . "\" 999999 &>/dev/null")
+            silent! call system("live-latex-update.sh \"" . b:Rootfile . "\" 999999 2>&1 >/dev/null")
         endif
         if filereadable(b:Pdfroot.".pdf")
             let b:MuPDFWindowID = system("mupdf-launch.sh \"" . b:Pdfroot . ".pdf\" \"" . expand("%") . "\" 2> /dev/null")
@@ -121,7 +121,7 @@ if tex_preview_always_autosave == 1
        if filewritable(bufname("%"))
            silent update
            if b:Liveupdating == "yes"
-                silent! exec "silent! !live-latex-check.sh \"" . b:Rootfile . "\" \"" . expand("%") . "\" " . b:MuPDFWindowID . " &>/dev/null &" 
+                silent! exec "silent! !live-latex-check.sh \"" . b:Rootfile . "\" \"" . expand("%") . "\" " . b:MuPDFWindowID . " 2>&1 >/dev/null &" 
            endif
        endif
     endfunction
@@ -129,7 +129,7 @@ else
     function! UpdatePDF()
        if filewritable(bufname("%")) && b:Liveupdating == "yes"
            silent update
-           silent! exec "silent! !live-latex-check.sh \"" . b:Rootfile . "\" \"" . expand("%") . "\" " . b:MuPDFWindowID . " &>/dev/null &" 
+           silent! exec "silent! !live-latex-check.sh \"" . b:Rootfile . "\" \"" . expand("%") . "\" " . b:MuPDFWindowID . " 2>&1 >/dev/null &" 
        endif
     endfunction
 endif
@@ -174,13 +174,13 @@ function! UpdatingToggle()
 endfunction
 " Manual compilation/unstickifier
 function ManualCompilation()
-    silent! call system('!killall pdflatex &>/dev/null')
-    silent! call system('!killall xelatex &>/dev/null')
-    silent! call system('!killall live-latex-check.sh &>/dev/null')
-    silent! call system('!killall live-latex-update.sh &>/dev/null')
+    silent! call system('!killall pdflatex 2>&1 >/dev/null')
+    silent! call system('!killall xelatex 2>&1 >/dev/null')
+    silent! call system('!killall live-latex-check.sh 2>&1 >/dev/null')
+    silent! call system('!killall live-latex-update.sh 2>&1 >/dev/null')
     silent update
     if b:Liveupdating == "yes"
-        silent! call system("live-latex-check.sh \"" . b:Rootfile . "\" \"" . expand("%") . "\" " . b:MuPDFWindowID . " &>/dev/null &")
+        silent! call system("live-latex-check.sh \"" . b:Rootfile . "\" \"" . expand("%") . "\" " . b:MuPDFWindowID . " 2>&1 >/dev/null &")
     else
         exec "!live-latex-update.sh \"" . b:Rootfile . "\" " . b:MuPDFWindowID 
         call CheckLiveUpdateStatus()
