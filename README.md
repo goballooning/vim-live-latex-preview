@@ -1,6 +1,6 @@
 Note: 
-- `bin/` contains some bash scripts used by the plugin. Add it to your `PATH`.
-- Some code in `ftplugin/tex/live-latex-preview.vim` are commented. That part is not necessary for `pathogen` or `Vundle` users.
+- `bin/` contains some shell scripts used by the plugin. Add it to your `PATH`.
+- Some code in `ftplugin/tex/live-latex-preview.vim` is commented. That part is not necessary for `pathogen` or `Vundle` users.
 
 Warning:
 - This is an unofficial clone of vim-live-latex-preview by Kevin C. Klement <klement@philos.umass.edu>
